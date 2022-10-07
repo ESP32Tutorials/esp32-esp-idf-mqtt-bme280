@@ -1,0 +1,217 @@
+[
+    {
+        "id": "a1b7a84327858a67",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "48a922af037f57fd",
+        "type": "ui_gauge",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "group": "8e02aafa938d79b6",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "40",
+        "colors": [
+            "#b30000",
+            "#e60000",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1070,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5e6ee9fa6f420e0b",
+        "type": "ui_gauge",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "group": "8e02aafa938d79b6",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#0036b3",
+            "#0026e6",
+            "#3a3ecb"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 1060,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "cd2fcad2f13358f3",
+        "type": "mqtt in",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "topic": "esp32/bme280/temperature",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "1526e8a1637734b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 820,
+        "y": 140,
+        "wires": [
+            [
+                "48a922af037f57fd"
+            ]
+        ]
+    },
+    {
+        "id": "0a6a7a0c89fdaf97",
+        "type": "mqtt in",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "topic": "esp32/bme280/humidity",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "1526e8a1637734b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 800,
+        "y": 220,
+        "wires": [
+            [
+                "5e6ee9fa6f420e0b"
+            ]
+        ]
+    },
+    {
+        "id": "61c3fb1882cd7645",
+        "type": "mqtt in",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "topic": "esp32/bme280/pressure",
+        "qos": "0",
+        "datatype": "auto",
+        "broker": "1526e8a1637734b3",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 810,
+        "y": 300,
+        "wires": [
+            [
+                "6f13ebcb58cc33ef"
+            ]
+        ]
+    },
+    {
+        "id": "6f13ebcb58cc33ef",
+        "type": "ui_chart",
+        "z": "a1b7a84327858a67",
+        "name": "",
+        "group": "8e02aafa938d79b6",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure (hPa)",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": true,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1080,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8e02aafa938d79b6",
+        "type": "ui_group",
+        "name": "BME280 Readings",
+        "tab": "c8fcfeca1e6159e9",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1526e8a1637734b3",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "c8fcfeca1e6159e9",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]
